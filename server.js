@@ -17,7 +17,7 @@ var router = express.Router();
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 6069;
+var PORT = process.env.PORT || 6071;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -44,7 +44,7 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// index page 
+
 app.get('/patients', function(req, res) {
     db.Patient.findAll({
         // need to do something in here to feed jquery? 
@@ -54,6 +54,19 @@ app.get('/patients', function(req, res) {
         console.log("server .get promise");
         console.log(dbPatients);
         res.render("patients", { patient_db: dbPatients });
+        next();
+    });
+});
+
+app.get('/nurses', function(req, res) {
+    db.Nurse.findAll({
+        // need to do something in here to feed jquery? 
+        // or handlebars? 
+    }).then(function(dbNurses) {
+        // console.log(dbPatients);
+        console.log("server .get promise");
+        console.log(dbNurses);
+        res.render("patients", { nurse_db: dbNurses });
         next();
     });
 });
@@ -70,13 +83,21 @@ app.get('/schedule', function(req, res) {
     console.log("schedule please!");
 });
 
+// availability page 
+app.get('/availability', function(req, res) {
+    res.render('availability');
+    console.log("set your schedule");
+});
+
+
+
 // PASSPORT.JS CODE 🔑🔑 
 /*=====================================================================================*/
 var passport = require('passport')
 var session = require('express-session')
 var env = require('dotenv').load();
 var authRoute = require('./routes/auth.js')(app, passport);
-var models = require("./models");
+var models = require("./models/user.js");
 
 app.use(session({ secret: 'medi', resave: true, saveUninitialized: true })); // session secret
 
@@ -85,7 +106,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 //load passport strategies
-require('./config/passport.js')(passport, models.user);
+var passConfig = require('./config/passport.js')(passport, models.user);
 
 /*=====================================================================================*/
 // END OF PASSPORT.JS CODE 🔑🔑 

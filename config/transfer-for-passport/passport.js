@@ -33,7 +33,7 @@
              passReqToCallback: true // allows us to pass back the entire request to the callback
          },
 
-         function(req, email, password, done) {
+         function(req, badgeId, password, done) {
 
 
              var generateHash = function(password) {
@@ -49,8 +49,8 @@
                      var data = {
                          badgeId: badgeId,
                          password: userPassword,
-                         firstname: req.body.firstname,
-                         lastname: req.body.lastname
+                         //  firstname: req.body.firstname,
+                         //  lastname: req.body.lastname
                      };
 
 
@@ -90,7 +90,7 @@
              passReqToCallback: true // allows us to pass back the entire request to the callback
          },
 
-         function(req, email, password, done) {
+         function(req, badgeId, password, done) {
 
              var User = user;
 

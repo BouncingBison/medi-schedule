@@ -113,6 +113,28 @@
     margin-left: 0px;
 }
 
+.shiftCol {
+    padding: 25px;
+    overflow: auto;
+    height: 100%;
+    background-color: grey;
+}
+
+.calendarBox {
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    height: 100%;
+    position: relative;
+}
+
+.mockbox {
+    margin: 0px;
+    padding: 0px;
+    height: 30%;
+    position: relative;
+}
+
 .oncall {
     text-align: center;
     font-size: 26px;
