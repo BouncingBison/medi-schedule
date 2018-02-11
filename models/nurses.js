@@ -2,15 +2,10 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Nurse = sequelize.define("Nurse", {
-        // first name 
-        first: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        // last name
-        last: {
-            type: DataTypes.STRING,
-            allowNull: true
+        // badge ID
+        badgeId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         // days
         sunday1: {

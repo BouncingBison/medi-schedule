@@ -1,30 +1,62 @@
 
+<!-- <div class="container">
 
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>                        
+        		</button>
+				<a class="navbar-brand" href="/schedule">Medi-Schedule</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/schedule">Schedule<span class="sr-only">(current)</span></a></li>
+					<li><a href="/patients">Patients</a></li>
+					<li><a href="/nurses">Nurses</a></li>
+					<li><a href="/availability">Availability</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html" class="logout"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+      			</ul>
+			</div>
+		</nav>
+
+
+    
+</div>
+ 
+
+ --> 
 
 
 <div class="container">
-    
-    
-    
-    
-    
-    <div class="col-md-3 shiftCol">
+        
+<div class="col-md-3 shiftCol">
 
-	<div class="panel panel-primary shiftBox">
+
+
+<div class="panel panel-primary shiftBox">
 						<div class="panel-heading">
 					        <h3 class="panel-title">Request Your Shifts</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
-                                <div>
-                                    <label> Select the shifts you want to work </label>
+                              {{!-- NOTE this shift form begins below with the tag below and is closed in the saturday section   --}}
+	                            <form method="POST" action="/api/nurse">
+                                    <div>
+
+
+                                    <label> Input your Badge ID and select the shifts you want to work </label>
                                     <label  for="shift1">Shift 1: 12-9</label>
                                      <label for="shift2">Shift 2: 9-3</label>
                                      <label for="shift3">Shift 3: 3-12</label>
+                                     <label for="badgeId">Badge ID #</label>
+                                     <input type="number" id="badgeId" name="badgeId" value="text">
                                 </div>
-								<button type="submit btn-success">Submit</button>
-                             </form>
+								<button type="submit btn-success" id="b1" onclick="getAllUsers">Submit</button>
+                             {{!-- </form> --}}
 		      			</div>
                     </div>
 					{{!-- sunday --}}
@@ -33,18 +65,18 @@
 					        <h3 class="panel-title">Sunday</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
+							{{!-- <form method="POST" action="/api/nurse" id="sunday"> --}}
                                 <div>
                                     <label>  </label>
-                                    <label class="inputLabel" for="shift1">Shift 1</label>
-                                     <input type="radio" id="sunday1" name="sunday1" value="1">
-                                     <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="sunday2" name="sunday2" value="1">
-                                     <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="sunday3"  name="sunday3" value="1">
+                                    <label class="inputLabel" for="sunday1">Shift 1</label>
+                                     <input type="radio" id="sunday1" name="sunday1" value="Shift 1">
+                                     <label for="sunday2">Shift 2</label>
+                                     <input type="radio" id="sunday2" name="sunday2" value="Shift 2">
+                                     <label for="sunday3">Shift 3</label>
+                                     <input type="radio" id="sunday3"  name="sunday3" value="Shift 3">
                                 </div>
-								
-                             </form>
+								{{!-- <button type="submit btn-success" id="b2" ></button> --}}
+                             {{!-- </form> --}}
 		      			</div>
                     </div>
 					{{!-- /sunday --}}
@@ -54,17 +86,19 @@
 					        <h3 class="panel-title">Monday</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
-                                <div>
-                                    <label></label>
+							{{!-- <form method="POST" action="/api/nurse" id="monday"> --}}
+                                <div>   
+                                 <label></label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="monday1" name="monday1" value="active">
+                                     <input type="radio" id="monday1" name="monday1" value="shift1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="monday2" name="monday2" value="active">
+                                     <input type="radio" id="monday2" name="monday2" value="shift2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="monday3"  name="monday3" value="active">
+                                     <input type="radio" id="monday3"  name="monday3" value="shift3">
                                 </div>
-                             </form>
+                                {{!-- <button type="submit btn-success" id="b3" ></button> --}}
+
+                             {{!-- </form> --}}
 		      			</div>
                     </div>
 					{{!-- /monday --}}
@@ -74,17 +108,17 @@
 					        <h3 class="panel-title">Tuesday</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
+							{{!-- <form method="POST" action="/api/nurse" id="tuesday"> --}}
                                 <div>
                                     <label>  </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="tuesday1" name="tuesday1" value="$tuesday1">
+                                     <input type="radio" id="tuesday1" name="tuesday1" value="shift1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="tuesday2" name="tuesday2" value="$tuesday2">
+                                     <input type="radio" id="tuesday2" name="tuesday2" value="shift2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="tuesday3"  name="tuesday3" value="$tuesday3">
+                                     <input type="radio" id="tuesday3"  name="tuesday3" value="shift3">
                                 </div>
-                             </form>
+                             {{!-- </form> --}}
 		      			</div>
                     </div>
 					{{!-- /tuesday --}}
@@ -94,17 +128,17 @@
 					        <h3 class="panel-title">Wednesday</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
+							{{!-- <form method="POST" action="/api/nurse" id="wednesday"> --}}
                                 <div>
                                     <label> </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="wednesday1" name="wednesday1" value="TRUE">
+                                     <input type="radio" id="wednesday1" name="wednesday1" value="shift1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="wednesday2" name="wednesday2" value="TRUE">
+                                     <input type="radio" id="wednesday2" name="wednesday2" value="shift2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="wednesday3"  name="wednesday3" value="TRUE">
+                                     <input type="radio" id="wednesday3"  name="wednesday3" value="shift3">
                                 </div>
-                             </form>
+                             {{!-- </form> --}}
 		      			</div>
                     </div>
 					{{!-- /wednesday --}}
@@ -114,17 +148,17 @@
 					        <h3 class="panel-title">Thursday</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
+							{{!-- <form method="POST" action="/api/nurse" id="thursday"> --}}
                                 <div>
                                     <label>  </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="thursday1" name="thursday1" value="TRUE">
+                                     <input type="radio" id="thursday1" name="thursday1" value="shift1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="thursday2" name="thursday2" value="TRUE1">
+                                     <input type="radio" id="thursday2" name="thursday2" value="shift2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="thursday3"  name="thursday3" value="TRUE">
+                                     <input type="radio" id="thursday3"  name="thursday3" value="shift3">
                                 </div>
-                             </form>
+                             {{!-- </form> --}}
 		      			</div>
                     </div>
 					{{!-- /thursday --}}
@@ -134,17 +168,17 @@
 					        <h3 class="panel-title">Friday</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
+							{{!-- <form method="POST" action="/api/nurse" id="friday"> --}}
                                 <div>
                                     <label>  </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="friday1" name="friday1" value="TRUE1">
+                                     <input type="radio" id="friday1" name="friday1" value="shift1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="friday2" name="friday2" value="TRUE">
+                                     <input type="radio" id="friday2" name="friday2" value="shift2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="friday3"  name="friday3" value="TRUE">
+                                     <input type="radio" id="friday3"  name="friday3" value="shift3">
                                 </div>
-                             </form>
+                             {{!-- </form> --}}
 		      			</div>
                     </div>
 					{{!-- /friday --}}
@@ -154,15 +188,15 @@
 					        <h3 class="panel-title">Saturday</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/nurse">
+							{{!-- <form method="POST" action="/api/nurse" id="saturday"> --}}
                                 <div>
                                     <label></label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="saturday1" name="saturday1" value="TRUE">
+                                     <input type="radio" id="saturday1" name="saturday1" value="shift1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="saturday2" name="saturday2" value="TRUE">
+                                     <input type="radio" id="saturday2" name="saturday2" value="shift2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="saturday3"  name="saturday3" value="TRUE">
+                                     <input type="radio" id="saturday3"  name="saturday3" value="shift3">
                                 </div>
                              </form>
 		      			</div>
@@ -172,88 +206,154 @@
 
 
 
-<script>
-$('form').each(function() {
-    var that = $(this);
-    $.post(that.attr('action'), that.serialize());
-	console.log("this is that:", that); 
-});
-</script>
+<div class="  col-md-9"> 
+<div class="col-sm-3 dayBox">
+<div class="moment">{{sunday}}</div>
+{{#if sunday1}}
+<div class="shift1">{{sunday1}}</div>
+{{/if}}
+{{#if sunday2}}
+<div class="shift2">{{sunday2}}</div>
+{{/if}}
+{{#if sunday3}}
+<div class="shift3">{{sunday3}}</div>
+{{/if}}
+</div>
+
+
+{{!--  --}}
+
+<div class="col-sm-3 dayBox">
+<div class="moment">{{monday}}</div>
+{{#if monday1}}
+<div class="shift1">{{monday1}}</div>
+{{/if}}
+{{#if monday2}}
+<div class="shift2">{{monday2}}</div>
+{{/if}}
+{{#if monday3}}
+<div class="shift3">{{monday3}}</div>
+{{/if}}
+</div>
+{{!--  --}}
+
+
+<div class="col-sm-3 dayBox">
+<div class="moment">{{tuesday}}</div>
+{{#if tuesday1}}
+<div class="shift1">{{tuesday1}}</div>
+{{/if}}
+{{#if tuesday2}}
+<div class="shift2">{{tuesday2}}</div>
+{{/if}}
+{{#if tuesday3}}
+<div class="shift3">{{tuesday3}}</div>
+{{/if}}
+</div>
+
+{{!--  --}}
+
+
+<div class="col-sm-3 dayBox">
+<div class="moment">{{wednesday}}</div>
+{{#if wednesday1}}
+<div class="shift1">{{wednesday1}}</div>
+{{/if}}
+{{#if wednesday2}}
+<div class="shift2">{{wednesday2}}</div>
+{{/if}}
+{{#if wednesday3}}
+<div class="shift3">{{wednesday3}}</div>
+{{/if}}
+</div>
+
+{{!--  --}}
+
+<div class="col-sm-3 dayBox">
+<div class="moment">{{thursday}}</div>
+{{#if thursday1}}
+<div class="shift1">{{thursday1}}</div>
+{{/if}}
+{{#if thursday2}}
+<div class="shift2">{{thursday2}}</div>
+{{/if}}
+{{#if thursday3}}
+<div class="shift3">{{thursday3}}</div>
+{{/if}}
+</div>
+
+{{!--  --}}
+
+<div class="col-sm-3 dayBox">
+<div class="moment">{{friday}}</div>
+{{#if friday1}}
+<div class="shift1">{{friday1}}</div>
+{{/if}}
+{{#if friday2}}
+<div class="shift2">{{friday2}}</div>
+{{/if}}
+{{#if friday3}}
+<div class="shift3">{{friday3}}</div>
+{{/if}}
+</div>
+
+{{!--  --}}
+
+<div class="col-sm-3 dayBox">
+<div class="moment">{{saturday}}</div>
+{{#if saturday1}}
+<div class="shift1">{{saturday1}}</div>
+{{/if}}
+{{#if saturday2}}
+<div class="shift2">{{saturday2}}</div>
+{{/if}}
+{{#if saturday3}}
+<div class="shift3">{{saturday3}}</div>
+{{/if}}
+</div>
+
+{{!--  --}}
 
 
 
 
 
 
-{{!-- <div class="col-md-9">
-
-      <!-- Responsive calendar - START -->
-    	<div class="responsive-calendar">
-        <div class="controls">
-            <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
-            <h4><span data-head-year></span> <span data-head-month></span></h4>
-            <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
-        </div><hr/>
-        <div class="day-headers">
-          <div class="day header">Mon</div>
-          <div class="day header">Tue</div>
-          <div class="day header">Wed</div>
-          <div class="day header">Thu</div>
-          <div class="day header">Fri</div>
-          <div class="day header">Sat</div>
-          <div class="day header">Sun</div>
-        </div>
-        <div class="days" data-group="days">
-          
-        </div>
-      </div>
-      <!-- Responsive calendar - END -->
-    </div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/responsive-calendar.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(".responsive-calendar").responsiveCalendar({
-          time: '2013-05',
-          events: {
-            "2013-04-30": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
-            "2013-04-26": {"number": 1, "url": "http://w3widgets.com"}, 
-            "2013-05-03":{"number": 1}, 
-            "2013-06-12": {}}
-        });
-      });
 
 
 
-      
-    </script>
- 
- --}}
 
 
-<div class="col-md-9 calendarBox"> 
 
-<div class="mockbox"> shift one mock box</div>
-<div class="mockbox"> shift two mock box</div>
-<div class="mockbox"> shift three mock box</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 </div>
-    
-    
 
 
 
 
-</div>
+ <script type="text/javascript">
 
 
-
-
-
-
-
-
- 
+ </script>

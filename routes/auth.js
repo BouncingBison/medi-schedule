@@ -9,13 +9,18 @@ module.exports = function(app, passport) {
 
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/schedule',
+        successRedirect: '/availability',
         failureRedirect: '/'
     }));
 
 
     app.get('/schedule', isLoggedIn, authController.dashboard);
 
+    app.get('/availability', isLoggedIn, authController.dashboard);
+
+    app.get('/patients', isLoggedIn, authController.dashboard);
+
+    app.get('/nurses', isLoggedIn, authController.dashboard);
 
     app.get('/logout', authController.logout);
 

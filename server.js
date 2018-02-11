@@ -10,6 +10,7 @@ var path = require('path');
 var patients = require('./models/patients.js');
 var nodemon = require('nodemon');
 var cookieParser = require('cookie-parser');
+var moment = require('moment');
 
 // our express router 
 var router = express.Router();
@@ -17,7 +18,7 @@ var router = express.Router();
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 6071;
+var PORT = process.env.PORT || 6072;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -41,7 +42,47 @@ require("./routes/api-routes.js")(app);
 var exphbs = require('express-handlebars');
 
 // var handlebars = require('handlebars');
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+    helpers: {
+        sunday: function() {
+            return moment().day("Sunday").format("dddd, MMMM, DD")
+
+        },
+        monday: function() {
+            return moment().day("Monday").format("dddd, MMMM, DD")
+
+        },
+        tuesday: function() {
+            return moment().day("Tuesday").format("dddd, MMMM, DD")
+
+        },
+        wednesday: function() {
+            return moment().day("Wednesday").format("dddd, MMMM, DD")
+
+        },
+        thursday: function() {
+            return moment().day("Thursday").format("dddd, MMMM, DD")
+
+        },
+        friday: function() {
+            return moment().day("Friday").format("dddd, MMMM, DD")
+
+        },
+        saturday: function() {
+            return moment().day("Saturday").format("dddd, MMMM, DD")
+
+        }
+    }
+
+}));
+
+
+
+
+
+
+
 app.set('view engine', 'handlebars');
 
 
@@ -50,24 +91,22 @@ app.get('/patients', function(req, res) {
         // need to do something in here to feed jquery? 
         // or handlebars? 
     }).then(function(dbPatients) {
-        // console.log(dbPatients);
-        console.log("server .get promise");
-        console.log(dbPatients);
+
         res.render("patients", { patient_db: dbPatients });
         next();
     });
 });
 
-app.get('/nurses', function(req, res) {
+app.get('/availability', function(req, res) {
+
     db.Nurse.findAll({
         // need to do something in here to feed jquery? 
         // or handlebars? 
     }).then(function(dbNurses) {
         // console.log(dbPatients);
-        console.log("server .get promise");
-        console.log(dbNurses);
-        res.render("patients", { nurse_db: dbNurses });
-        next();
+        // console.log(dbNurses);
+        res.render("availability", { nurse_db: dbNurses });
+        // next();
     });
 });
 
