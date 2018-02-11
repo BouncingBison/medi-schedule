@@ -75,78 +75,96 @@ module.exports = function(app) {
             // console.log(nurse_db.Nurses);
             // var jsonDate = (new Date()).toJSON();
             // console.log(jsonDate);
-            console.log(Week);
-            res.render("availability", { nurse_db: dbNurses, sunday1: dbNurses.sunday1 });
+            res.render("availability", {
+                nurse_db: dbNurses,
+                sunday1: dbNurses.sunday1,
+                sunday2: dbNurses.sunday2,
+                sunday3: dbNurses.sunday3,
+                monday1: dbNurses.monday1,
+                monday2: dbNurses.monday2,
+                monday3: dbNurses.monday3,
+                tuesday1: dbNurses.tuesday1,
+                tuesday2: dbNurses.tuesday2,
+                tuesday3: dbNurses.tuesday3,
+                wednesday1: dbNurses.wednesday1,
+                wednesday2: dbNurses.wednesday2,
+                wednesday3: dbNurses.wednesday3,
+                thursday1: dbNurses.thursday1,
+                thursday2: dbNurses.thursday2,
+                thursday3: dbNurses.thursday3,
+                friday1: dbNurses.friday1,
+                friday2: dbNurses.friday2,
+                friday3: dbNurses.friday3,
+                saturday1: dbNurses.saturday1,
+                saturday2: dbNurses.saturday2,
+                saturday3: dbNurses.saturday3
+            });
         });
-        // return dbPatients;
+        res.redirect("/availability");
     });
 
+    // if (db.Nurse.badgeId){
 
-    task.title = 'foooo'
-    task.description = 'baaaaaar'
-    task.save({ fields: ['title'] }).then(() => {
-        // title will now be 'foooo' but description is the very same as before
-    })
+    //     db.Nurse.update({
+    //         title: 'a very different title now'
+    //       }).then(() => {})
 
-    // The equivalent call using update looks like this:
-    db.Nurse.update({ sunday1: req.body.sunday1 }, { fields: ['sunday1'] }).then(() => {
-        // title will now be 'foooo' but description is the very same as before
-    })
 
+    // }
     app.post("/api/nurse", function(req, res) {
-        return db.Nurse.update({
+        return db.Nurse.create({
 
-            // badgeId: req.body.badgeId,
-            sunday1: req.body.sunday1
-                // sunday2: req.body.sunday2,
-                // sunday3: req.body.sunday3,
-                // monday1: req.body.monday1,
-                // monday2: req.body.monday2,
-                // monday3: req.body.monday3,
-                // tuesday1: req.body.tuesday1,
-                // tuesday2: req.body.tuesday2,
-                // tuesday3: req.body.tuesday3,
-                // wednesday1: req.body.wednesday1,
-                // wednesday2: req.body.wednesday2,
-                // wednesday3: req.body.wednesday3,
-                // thursday1: req.body.thursday1,
-                // thursday2: req.body.thursday2,
-                // thursday3: req.body.thursday3,
-                // friday1: req.body.friday1,
-                // friday2: req.body.friday2,
-                // friday3: req.body.friday3,
-                // saturday1: req.body.saturday1,
-                // saturday2: req.body.saturday2,
-                // saturday3: req.body.saturday3
-        }, { fields: ['sunday1'] }).then(function(dbNurses) {
+            badgeId: req.body.badgeId,
+            sunday1: req.body.sunday1,
+            sunday2: req.body.sunday2,
+            sunday3: req.body.sunday3,
+            monday1: req.body.monday1,
+            monday2: req.body.monday2,
+            monday3: req.body.monday3,
+            tuesday1: req.body.tuesday1,
+            tuesday2: req.body.tuesday2,
+            tuesday3: req.body.tuesday3,
+            wednesday1: req.body.wednesday1,
+            wednesday2: req.body.wednesday2,
+            wednesday3: req.body.wednesday3,
+            thursday1: req.body.thursday1,
+            thursday2: req.body.thursday2,
+            thursday3: req.body.thursday3,
+            friday1: req.body.friday1,
+            friday2: req.body.friday2,
+            friday3: req.body.friday3,
+            saturday1: req.body.saturday1,
+            saturday2: req.body.saturday2,
+            saturday3: req.body.saturday3
+        }).then(function(dbNurses) {
             // console.log(dbPatient);
             var jsonDate = (new Date()).toJSON();
             // console.log(jsonDate);
             // console.log(req.body);
-            console.log("moving through the promise")
+            console.log("sending to db")
             res.render("availability", {
                 nurse_db: dbNurses,
-                sunday1: dbNurses.sunday1
-                    // sunday2: dbNurses.sunday2,
-                    // sunday3: dbNurses.sunday3,
-                    // monday1: dbNurses.monday1,
-                    // monday2: dbNurses.monday2,
-                    // monday3: dbNurses.monday3,
-                    // tuesday1: dbNurses.tuesday1,
-                    // tuesday2: dbNurses.tuesday2,
-                    // tuesday3: dbNurses.tuesday3,
-                    // wednesday1: dbNurses.wednesday1,
-                    // wednesday2: dbNurses.wednesday2,
-                    // wednesday3: dbNurses.wednesday3,
-                    // thursday1: dbNurses.thursday1,
-                    // thursday2: dbNurses.thursday2,
-                    // thursday3: dbNurses.thursday3,
-                    // friday1: dbNurses.friday1,
-                    // friday2: dbNurses.friday2,
-                    // friday3: dbNurses.friday3,
-                    // saturday1: dbNurses.saturday1,
-                    // saturday2: dbNurses.saturday2,
-                    // saturday3: dbNurses.saturday3
+                sunday1: dbNurses.sunday1,
+                sunday2: dbNurses.sunday2,
+                sunday3: dbNurses.sunday3,
+                monday1: dbNurses.monday1,
+                monday2: dbNurses.monday2,
+                monday3: dbNurses.monday3,
+                tuesday1: dbNurses.tuesday1,
+                tuesday2: dbNurses.tuesday2,
+                tuesday3: dbNurses.tuesday3,
+                wednesday1: dbNurses.wednesday1,
+                wednesday2: dbNurses.wednesday2,
+                wednesday3: dbNurses.wednesday3,
+                thursday1: dbNurses.thursday1,
+                thursday2: dbNurses.thursday2,
+                thursday3: dbNurses.thursday3,
+                friday1: dbNurses.friday1,
+                friday2: dbNurses.friday2,
+                friday3: dbNurses.friday3,
+                saturday1: dbNurses.saturday1,
+                saturday2: dbNurses.saturday2,
+                saturday3: dbNurses.saturday3
 
             });
         });
@@ -154,7 +172,7 @@ module.exports = function(app) {
     // DELETE route for deleting Patients. You can access the Patient's id in req.params.id
     app.delete("/api/nurse", function(req, res) {
 
-        db.Patient.destroy({
+        db.Nurse.destroy({
             where: {
 
             }
@@ -164,9 +182,68 @@ module.exports = function(app) {
     });
     // DELETE FROM post WHERE status = 'inactive';
     // PUT route for updating todos. The updated todo will be available in req.body
-    app.put("/api/nurse", function(req, res) {
+    // app.put("/api/nurse", function(req, res) {
 
-    });
+
+    //     task.update({
+    //         title: 'a very different title now'
+    //       }).then(() => {})
+    //     return db.Nurse.create({
+    //         badgeId: req.body.badgeId,
+    //         sunday1: req.body.sunday1,
+    //         sunday2: req.body.sunday2,
+    //         sunday3: req.body.sunday3,
+    //         monday1: req.body.monday1,
+    //         monday2: req.body.monday2,
+    //         monday3: req.body.monday3,
+    //         tuesday1: req.body.tuesday1,
+    //         tuesday2: req.body.tuesday2,
+    //         tuesday3: req.body.tuesday3,
+    //         wednesday1: req.body.wednesday1,
+    //         wednesday2: req.body.wednesday2,
+    //         wednesday3: req.body.wednesday3,
+    //         thursday1: req.body.thursday1,
+    //         thursday2: req.body.thursday2,
+    //         thursday3: req.body.thursday3,
+    //         friday1: req.body.friday1,
+    //         friday2: req.body.friday2,
+    //         friday3: req.body.friday3,
+    //         saturday1: req.body.saturday1,
+    //         saturday2: req.body.saturday2,
+    //         saturday3: req.body.saturday3
+    //     }).then(function(dbNurses) {
+    //         // console.log(dbPatient);
+    //         var jsonDate = (new Date()).toJSON();
+    //         // console.log(jsonDate);
+    //         // console.log(req.body);
+    //         console.log("sending to db")
+    //         res.render("availability", {
+    //             nurse_db: dbNurses,
+    //             sunday1: dbNurses.sunday1,
+    //             sunday2: dbNurses.sunday2,
+    //             sunday3: dbNurses.sunday3,
+    //             monday1: dbNurses.monday1,
+    //             monday2: dbNurses.monday2,
+    //             monday3: dbNurses.monday3,
+    //             tuesday1: dbNurses.tuesday1,
+    //             tuesday2: dbNurses.tuesday2,
+    //             tuesday3: dbNurses.tuesday3,
+    //             wednesday1: dbNurses.wednesday1,
+    //             wednesday2: dbNurses.wednesday2,
+    //             wednesday3: dbNurses.wednesday3,
+    //             thursday1: dbNurses.thursday1,
+    //             thursday2: dbNurses.thursday2,
+    //             thursday3: dbNurses.thursday3,
+    //             friday1: dbNurses.friday1,
+    //             friday2: dbNurses.friday2,
+    //             friday3: dbNurses.friday3,
+    //             saturday1: dbNurses.saturday1,
+    //             saturday2: dbNurses.saturday2,
+    //             saturday3: dbNurses.saturday3
+
+    //         });
+    //     });
+    // });
 
 };
 

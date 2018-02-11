@@ -3,25 +3,26 @@ var exports = module.exports = {}
 
 exports.signup = function(req, res) {
 
-    res.render('schedule');
+    res.render('signup');
 
 }
 
 exports.signin = function(req, res) {
 
-    res.render('schedule');
+    res.render('signin');
 
 }
 
 exports.dashboard = function(req, res) {
 
-    res.render('/schedule');
+    res.render('availability');
 
 }
 
 exports.logout = function(req, res) {
 
     req.session.destroy(function(err) {
-        res.redirect('/');
+        res.redirect('/signup');
     });
+
 }
