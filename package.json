@@ -1,45 +1,35 @@
 {
-    "name": "medi-schedule",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
-        "build": "babel src -d lib"
-    },
-    "keywords": [
-        "example",
-        "heroku"
-    ],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "babel": "^6.23.0",
-        "bcrypt-nodejs": "latest",
-        "bluebird": "^3.5.1",
-        "body-parser": "^1.18.2",
-        "cookie-parser": "^1.4.3",
-        "date-fns": "^1.29.0",
-        "debug": "^3.1.0",
-        "dotenv": "^4.0.0",
-        "express": "^4.14.0",
-        "express-handlebars": "^3.0.0",
-        "express-session": "^1.15.6",
-        "handlebars": "^4.0.10",
-        "moment": "^2.20.1",
-        "mysql2": "^1.3.6",
-        "nodemon": "^1.12.1",
-        "parser": "^0.1.4",
-        "passport": "^0.4.0",
-        "passport-local": "latest",
-        "path": "^0.12.7",
-        "sequelize": "^4.3.1"
-    },
-    "engines": {
-        "node": "6.11.2"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.26.0"
-    }
+  "name": "sequelize-passport-example",
+  "version": "1.0.0",
+  "description": "Using Passport with Sequelize and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyndachiwetelu/using-passport-with-sequelize-and-mysql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyndachiwetelu/node-passport-with-sequelize-and-mysql-example/issues"
+  },
+  "homepage": "https://github.com/lyndachiwetelu/node-passport-with-sequelize-and-mysql-example#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.16.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.0",
+    "handlebars": "^4.0.11",
+    "moment": "^2.20.1",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^3.30.1"
+  }
 }
