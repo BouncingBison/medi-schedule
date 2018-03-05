@@ -9,37 +9,62 @@ exports.make = function(req, res) {
 }
 
 
-exports.portal = function(req, res) {
-    db.patient.create({
-        sunday1: req.body.sunday1,
-        sunday2: req.body.sunday2,
-        sunday3: req.body.sunday3,
-        monday1: req.body.monday1,
-        monday2: req.body.monday2,
-        monday3: req.body.monday3,
+exports.portal = function(req, res, dbpatients) {
 
-    }).then(function(dbpatients) {
-        res.render("dashboard", {
-            sunday1: dbnurses.sunday1,
-            sunday2: dbnurses.sunday2,
-            sunday3: dbnurses.sunday3,
-            monday1: dbnurses.monday1,
-            monday2: dbnurses.monday2,
-        });
+
+    console.log("portal route in patient controller");
+    // console.log("body", req.body);
+
+    db.patient.create({
+        first: req.body.first,
+        last: req.body.last,
+        condition: req.body.condition,
+        gender: req.body.gender,
+        patientId: req.body.patientId,
+    }).then(function(dbpatient) {
+        db.patient.findAll({
+
+
+        }).then(function(dbpatient) {
+
+            console.log("////////// dbpatients object", dbpatient);
+            res.render("portal", {
+                dbpatients: dbpatient,
+                first: req.body.first,
+                last: req.body.last,
+                condition: req.body.condition,
+                gender: req.body.gender,
+                patientId: req.body.patientId
+
+            });
+
+
+        })
+
     });
 }
 
-exports.portal = function(req, res, dbpatients) {
+exports.patient = function(req, res, dbpatients) {
 
-    res.render("dashboard", {
-        sunday1: dbnurses.sunday1,
-        sunday2: dbnurses.sunday2,
-        sunday3: dbnurses.sunday3,
-        monday1: dbnurses.monday1,
-        monday2: dbnurses.monday2,
-        monday3: dbnurses.monday3,
 
+    console.log("findAll patient function");
+    db.patient.findAll({
+
+
+    }).then(function(dbpatients) {
+        console.log(dbpatients);
+        res.render("portal", {
+            dbpatients: dbpatients,
+            first: req.body.first,
+            last: req.body.last,
+            condition: req.body.condition,
+            gender: req.body.gender,
+            patientId: req.body.patientId
+        })
     });
+
+
+
 }
 
 exports.logout = function(req, res) {

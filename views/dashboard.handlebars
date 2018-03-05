@@ -1,3 +1,9 @@
+
+<ul class="nav navbar-nav navbar-right">
+        <li><a href="/" class="logout"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+</ul>
+
+
 <div class="container">
         
 <div class="col-md-3 shiftCol">
@@ -5,21 +11,23 @@
 
 
 <div class="panel panel-primary shiftBox">
-						<div class="panel-heading">
-					        <h3 class="panel-title">Request Your Shifts</h3>
-						</div><!-- / .panel-heading -->
-		      			<div class="panel-body">
+				<div class="panel-heading">
+			        <h3 class="panel-title">Request Your Shifts</h3>
+				</div><!-- / .panel-heading -->
+		      		<div class="panel-body">
                               {{!-- NOTE this shift form begins below with the tag below and is closed in the saturday section   --}}
 	                            <form method="POST" action="/dashboard">
                                     <div>
-                                    <label Input your Badge ID and select the shifts you want to work </label>
+                                    <label> Input your Badge ID and select the shifts you want to work </label>
+                                    <input type="hidden" name="_method" value="PUT" />
+                                    <input class="text" name="badgeId" type="badgeId"/>  
                                     <label  for="shift1">Shift 1: 12-9</label>
-                                     <label for="shift2">Shift 2: 9-3</label>
-                                     <label for="shift3">Shift 3: 3-12</label>
-                                     <label for="badgeId">Badge ID #</label>
-                                     <input for="badgeId" type="number" id="badgeId" name="badgeId" value="text">
-                                </div>
-								<button type="submit btn-success">Submit</button>
+                                    <label for="shift2">Shift 2: 9-3</label>
+                                    <label for="shift3">Shift 3: 3-12</label>
+                                    <label for="badgeId">Badge ID #</label>
+                                    </div>
+				<button type="submit btn-success" >Submit</button>
+
                              {{!-- </form> --}}
 		      			</div>
                     </div>
@@ -33,11 +41,11 @@
                                 <div>
                                     <label>  </label>
                                     <label class="inputLabel" for="sunday1">Shift 1</label>
-                                     <input type="radio" id="sunday1" name="sunday1" value="Shift 1">
+                                     <input type="radio" id="sunday1" name="sunday1" value="1">
                                      <label for="sunday2">Shift 2</label>
-                                     <input type="radio" id="sunday2" name="sunday2" value="Shift 2">
+                                     <input type="radio" id="sunday2" name="sunday2" value="2">
                                      <label for="sunday3">Shift 3</label>
-                                     <input type="radio" id="sunday3"  name="sunday3" value="Shift 3">
+                                     <input type="radio" id="sunday3"  name="sunday3" value="3">
                                 </div>
 								{{!-- <button type="submit btn-success" id="b2" ></button> --}}
                              {{!-- </form> --}}
@@ -54,11 +62,11 @@
                                 <div>   
                                  <label></label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="monday1" name="monday1" value="shift1">
+                                     <input type="radio" id="monday1" name="monday1" value="1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="monday2" name="monday2" value="shift2">
+                                     <input type="radio" id="monday2" name="monday2" value="2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="monday3"  name="monday3" value="shift3">
+                                     <input type="radio" id="monday3"  name="monday3" value="3">
                                 </div>
                                 {{!-- <button type="submit btn-success" id="b3" ></button> --}}
 
@@ -76,11 +84,11 @@
                                 <div>
                                     <label>  </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="tuesday1" name="tuesday1" value="shift1">
+                                     <input type="radio" id="tuesday1" name="tuesday1" value="1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="tuesday2" name="tuesday2" value="shift2">
+                                     <input type="radio" id="tuesday2" name="tuesday2" value="2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="tuesday3"  name="tuesday3" value="shift3">
+                                     <input type="radio" id="tuesday3"  name="tuesday3" value="3">
                                 </div>
                              {{!-- </form> --}}
 		      			</div>
@@ -96,11 +104,11 @@
                                 <div>
                                     <label> </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="wednesday1" name="wednesday1" value="shift1">
+                                     <input type="radio" id="wednesday1" name="wednesday1" value="1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="wednesday2" name="wednesday2" value="shift2">
+                                     <input type="radio" id="wednesday2" name="wednesday2" value="2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="wednesday3"  name="wednesday3" value="shift3">
+                                     <input type="radio" id="wednesday3"  name="wednesday3" value="3">
                                 </div>
                              {{!-- </form> --}}
 		      			</div>
@@ -116,11 +124,11 @@
                                 <div>
                                     <label>  </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="thursday1" name="thursday1" value="shift1">
+                                     <input type="radio" id="thursday1" name="thursday1" value="1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="thursday2" name="thursday2" value="shift2">
+                                     <input type="radio" id="thursday2" name="thursday2" value="2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="thursday3"  name="thursday3" value="shift3">
+                                     <input type="radio" id="thursday3"  name="thursday3" value="3">
                                 </div>
                              {{!-- </form> --}}
 		      			</div>
@@ -136,11 +144,11 @@
                                 <div>
                                     <label>  </label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="friday1" name="friday1" value="shift1">
+                                     <input type="radio" id="friday1" name="friday1" value="1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="friday2" name="friday2" value="shift2">
+                                     <input type="radio" id="friday2" name="friday2" value="2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="friday3"  name="friday3" value="shift3">
+                                     <input type="radio" id="friday3"  name="friday3" value="3">
                                 </div>
                              {{!-- </form> --}}
 		      			</div>
@@ -156,11 +164,11 @@
                                 <div>
                                     <label></label>
                                     <label for="shift1">Shift 1</label>
-                                     <input type="radio" id="saturday1" name="saturday1" value="shift1">
+                                     <input type="radio" id="saturday1" name="saturday1" value="1">
                                      <label for="shift2">Shift 2</label>
-                                     <input type="radio" id="saturday2" name="saturday2" value="shift2">
+                                     <input type="radio" id="saturday2" name="saturday2" value="2">
                                      <label for="shift3">Shift 3</label>
-                                     <input type="radio" id="saturday3"  name="saturday3" value="shift3">
+                                     <input type="radio" id="saturday3"  name="saturday3" value="3">
                                 </div>
                              </form>
 		      			</div>
@@ -170,8 +178,9 @@
 
 
 
-<div class="  col-md-9"> 
-<div class="col-sm-3 dayBox">
+<div class="col-md-9"> 
+<div class="col-sm-2 dayBox">
+<div class="moment">{{badgeId}}</div>
 <div class="moment">{{sunday}}</div>
 {{#if sunday1}}
 <div class="shift1">{{sunday1}}</div>
@@ -187,7 +196,8 @@
 
 {{!--  --}}
 
-<div class="col-sm-3 dayBox">
+<div class="col-sm-2 dayBox">
+<div class="moment">{{badgeId}}</div>
 <div class="moment">{{monday}}</div>
 {{#if monday1}}
 <div class="shift1">{{monday1}}</div>
@@ -202,7 +212,8 @@
 {{!--  --}}
 
 
-<div class="col-sm-3 dayBox">
+<div class="col-sm-2 dayBox">
+<div class="moment">{{badgeId}}</div>
 <div class="moment">{{tuesday}}</div>
 {{#if tuesday1}}
 <div class="shift1">{{tuesday1}}</div>
@@ -218,7 +229,8 @@
 {{!--  --}}
 
 
-<div class="col-sm-3 dayBox">
+<div class="col-sm-2 dayBox">
+<div class="moment">{{badgeId}}</div>        
 <div class="moment">{{wednesday}}</div>
 {{#if wednesday1}}
 <div class="shift1">{{wednesday1}}</div>
@@ -233,7 +245,8 @@
 
 {{!--  --}}
 
-<div class="col-sm-3 dayBox">
+<div class="col-sm-2 dayBox">
+<div class="moment">{{badgeId}}</div>        
 <div class="moment">{{thursday}}</div>
 {{#if thursday1}}
 <div class="shift1">{{thursday1}}</div>
@@ -248,7 +261,8 @@
 
 {{!--  --}}
 
-<div class="col-sm-3 dayBox">
+<div class="col-sm-2 dayBox">
+<div class="moment">{{badgeId}}</div>
 <div class="moment">{{friday}}</div>
 {{#if friday1}}
 <div class="shift1">{{friday1}}</div>
@@ -263,7 +277,8 @@
 
 {{!--  --}}
 
-<div class="col-sm-3 dayBox">
+<div class="col-sm-2 dayBox">
+<div class="moment">{{badgeId}}</div>
 <div class="moment">{{saturday}}</div>
 {{#if saturday1}}
 <div class="shift1">{{saturday1}}</div>
@@ -275,8 +290,6 @@
 <div class="shift3">{{saturday3}}</div>
 {{/if}}
 </div>
-
 {{!--  --}}
-
 </div>
 

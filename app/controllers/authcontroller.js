@@ -2,7 +2,6 @@ var exports = module.exports = {}
 var db = require("../models");
 
 exports.signup = function(req, res) {
-
     res.render("signup");
 
 }
@@ -13,6 +12,26 @@ exports.signin = function(req, res) {
     res.render("signin");
 
 }
+
+
+
+// exports.registerNurse = function(req, res) {
+
+//     db.nurse.findOne({ where: { badgeId: badgeId } }).then(function(nurse) {
+//         if (nurse) {
+//             return done(null, false);
+//         } else {
+//             var data = {
+//                 badgeId: req.body.badgeId,
+//             };
+//         }
+//         db.nurse.create(data).then(function(data) {
+
+//             console.log("nurse has been registered", data.badgeId);
+
+//         });
+//     });
+// }
 
 
 

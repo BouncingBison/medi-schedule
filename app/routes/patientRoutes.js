@@ -3,13 +3,13 @@ var patientController = require('../controllers/patientController.js');
 module.exports = function(app) {
 
 
-    app.get('/patients', isLoggedIn, patientController.portal);
+    app.get('/portal', isLoggedIn, patientController.patient);
 
     // app.post('/nurse', );
 
 
 
-    app.post('/patients', isLoggedIn, patientController.portal);
+    app.post('/portal', isLoggedIn, patientController.portal);
 
 
 

@@ -23,7 +23,7 @@
 		</nav>
 	</div><!-- /.container-fluid -->
 
-		<div class="co   ntent">
+		<div class="content">
 			<div class="container-fluid">
 				<div class="header" id="patient-header">
 					<h2>Current Patients</h2>
@@ -35,34 +35,41 @@
 					        <h3 class="panel-title">Add Patient</h3>
 						</div><!-- / .panel-heading -->
 		      			<div class="panel-body">
-							<form method="POST" action="/api/patient/">
+							<form method="POST" action="/portal">
                          	<div class="form-group">
 									<label for="first">Patient's First Name</label>
 									<input type="text" name="first" id="first" class="form-control" placeholder="First name up to 35 letters." pattern="[A-Za-z]{3,35}" required="true">
-		            			</div> <!-- / .form-group -->
+		            				<input type="hidden" name="admitted" id="admitted" for="admitted" value="admitted" />
 
-		            			<div class="form-group">
+								</div> <!-- / .form-group -->
+
+		            			 <div class="form-group">
 									<label for="last">Patient's Last Name</label>
 									<input type="text" name="last"  id="last" class="form-control" placeholder="Last name up to 35 letters." pattern="[A-Za-z]{3,35}" required="true">
-		            			</div> <!-- / .form-group -->
-		            			{{!-- <div class="form-group">
-									<label for="select-gender">Gender</label>
-									<select id="select-gender" class="form-control" name="gender" required>
-										<option value="" selected disabled>Gender</option>
-										<option value="F">Female</option>
-										<option value="N">Non-Binary</option>
-										<option value="M">Male</option>
+		            			</div> 
+
+								<div class="form-group">
+									<label for="last">Patient ID #/label>
+									<input type="text" name="patientId"  id="patientId" class="form-control" placeholder="Patient ID" >
+		            			</div> 
+								 <!-- / .form-group -->
+		            			 <div class="form-group">
+									<label for="gender">Gender</label>
+									<select id="gender" class="form-control" name="gender">
+										<option >Gender</option>
+										<option value="Female">Female</option>
+										<option value="Non-Binary">Non-Binary</option>
+										<option value="Male">Male</option>
 									</select>
-		            			</div> <!-- / .form-group --> --}}
-		            			{{!-- <div class="form-group">
-									<label for="select-condition">Condition</label>
-									<select id="select-condition" class="form-control" name="condition" required>
-										<option value="" selected disabled>Condition</option>
-										<option value="1">Critical</option>
-										<option value="2">Serious</option>
-										<option value="3">Good</option>
+		            			</div> <!-- / .form-group --> 
+		            			 <div class="form-group">
+									<label for="condition">Condition</label>
+									<select id="condition" class="form-control" name="condition">
+										<option value="Critical">Critical</option>
+										<option value="Serious">Serious</option>
+										<option value="Good">Good</option>
 									</select>
-		            			</div> <!-- / .form-group --> --}}
+		            			</div> <!-- / .form-group --> 
 								<button type="submit" id="add-patient-btn" class="btn btn-primary">Submit</button>
 							</form>
 						</div><!-- / .panel-body -->
@@ -80,17 +87,22 @@
                             <tr>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Admitted Date</th>
+                                <th>Gender</th>
+								<th>Condition</th>
+                                <th>Admitted</th>
+                                <th>Patient ID #</th>
                             </tr>
                         </thead>
                         <tbody>
-                           {{#each patient_db}}
+                           {{#each dbpatients}}
                          <tr>
+							  <td><h5>{{id}}</h5></td>
                              <td><h5>{{first}}</h5></td>
                              <td><h5>{{last}}</h5></td>
-                              {{!-- <td> {{gender}} </td>
-                              <td> {{condition}} </td> --}}
+                               <td> {{gender}} </td>
+                              <td> {{condition}} </td> 
                              <td><h5>{{admitted}}</h5></td>
+							 <td><h5>{{patientId}}</h5></td>
                          </tr>
                            {{/each}}
                         </tbody>

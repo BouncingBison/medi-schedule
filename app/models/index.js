@@ -35,6 +35,8 @@ Object.keys(db).forEach(function(modelName) {
 
 });
 
+// db.nurse.belongsTo(db.user);
+
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
